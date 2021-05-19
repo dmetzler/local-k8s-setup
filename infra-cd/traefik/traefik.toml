@@ -24,8 +24,5 @@
     buckets = [0.1,0.3,1.2,5.0]
     addEntryPointsLabels = true
     addServicesLabels = true
-
-
-[[tls.certificates]]
-  certFile = "/certs/tls.crt"
-  keyFile = "/certs/tls.key"
+[pilot]
+    token = "f865138a-9111-40e2-aa68-37814ca1874a"

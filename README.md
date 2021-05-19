@@ -55,13 +55,26 @@ rm -f _wildcard.k8s.dev-key.pem _wildcard.k8s.dev.pem
 We will use ArgoCD to install everything from now on.
 
 ```shell
+# Create ArgoCD namespace
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+# Deploy latest stable install
+kubectl apply -n argocd -k infra-cd/argocd
 ```
 
 ### Deploy with Gitops
 
 Let's deploy now our first ArogCD application
 ```shell
-kubectl apply -n argocd -f https://raw.githubusercontent.com/dmetzler/loca-k8s-setup/infra-app.yaml
+kubectl apply -n argocd -f https://raw.githubusercontent.com/dmetzler/local-k8s-setup/main/infra-app.yaml
 ```
+
+### Expose ArgoCD thru Traefik
+
+```shell
+kubectl apply -f infra-cd/argocd/argocd-ingress-route.yaml
+```
+
+
+
+
+

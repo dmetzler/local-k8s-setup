@@ -2,17 +2,15 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: prometheus-server
-  namespace: prometheus  
+  namespace: infra
 spec:
   entryPoints:
   - websecure
   routes:
   - kind: Rule
-    match: Host(`prometheus.k8s.local`)
+    match: Host(`prometheus.k8s.dev`)
     priority: 10
     services:
     - name: prometheus-server
       port: 80  
-  tls:
-    certResolver: default
-    options: {}
+  tls: {}

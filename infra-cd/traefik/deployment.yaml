@@ -46,6 +46,7 @@ spec:
         args:
         - --api
         - --configfile=/config/traefik.toml
+        - --providers.kubernetescrd
         - --set metrics.prometheus.enabled=true
 ---
 kind: Service

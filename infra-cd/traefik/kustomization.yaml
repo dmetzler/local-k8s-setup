@@ -4,10 +4,12 @@ kind: Kustomization
 namespace: infra
 
 resources:
-  - deployment.yaml
   - traefik_crd.yaml
   - traefik_rbac.yaml
-
+  - default_tls_store.yaml
+  - deployment.yaml
+  
+  
 configMapGenerator:
   - name: traefik-https-cfg
     files:
