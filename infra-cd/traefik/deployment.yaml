@@ -24,6 +24,9 @@ spec:
         - name: config
           configMap:
             name: traefik-https-cfg
+        - name: certs
+          secret:
+            secretName: traefik-tls-cert
       serviceAccountName: traefik-ingress-controller
       terminationGracePeriodSeconds: 60
       containers:
@@ -38,6 +41,8 @@ spec:
         volumeMounts:
           - mountPath: /config
             name: config
+          - mountPath: /certs
+            name: certs
         args:
         - --api
         - --configfile=/config/traefik.toml
