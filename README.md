@@ -39,9 +39,9 @@ cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.con
 sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/
 # Start Dnsmasq automatically.
 sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-echo "address=/dev/127.0.0.1" >> /usr/local/etc/dnsmasq.conf
+echo "address=/k8s.dev/127.0.0.1" >> /usr/local/etc/dnsmasq.conf
 sudo brew services restart dnsmasq
-# Create a client for .dev domain
+# Create a client for k8s.dev domain
 mkdir -p /etc/resolver
 echo > /etc/resolver/local <<EOT
 nameserver 127.0.0.1
