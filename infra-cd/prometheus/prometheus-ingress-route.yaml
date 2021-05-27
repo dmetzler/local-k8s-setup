@@ -8,9 +8,9 @@ spec:
   - websecure
   routes:
   - kind: Rule
-    match: Host(`prometheus.k8s.dev`)
+    match: Host(`prometheus.k8s.local`)
     priority: 10
     services:
     - name: prometheus-server
-      port: 80  
+      port: 80
   tls: {}
